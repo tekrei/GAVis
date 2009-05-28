@@ -7,7 +7,7 @@ public class DiophantineFitnessFunction implements FitnessFunction {
 	private static final long serialVersionUID = 1L;
 
 	public float getFitness(Chromosome chr) {
-		int beklenenDeger = 70;
+		int beklenenDeger = 30;
 
 		int toplam = toplamDegerBul((DiophantineChromosome)chr);
 		int fitness = Math.abs(toplam - beklenenDeger);

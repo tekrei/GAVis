@@ -11,7 +11,7 @@ import ga.operators.SwapMutation;
 public class DiophantineTest {
 
 	public static void main(String[] args) {
-		GAParametreler.init(10, 100, 0.02f, 0.7f, 4, new ChromosomeFactory(
+		GAParametreler.init(100, 100, 0.02f, 0.7f, 4, new ChromosomeFactory(
 				ChromosomeFactory.DIOPHANTINE));
 		new GeneticAlgorithm(GAParametreler.getInstance(),
 				new OnePointCrossover(), new SwapMutation(),
