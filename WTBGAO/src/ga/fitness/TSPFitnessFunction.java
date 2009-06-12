@@ -1,40 +1,20 @@
 package ga.fitness;
 
+import ga.data.Chromosome;
+
 import java.awt.geom.Point2D;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 import java.util.Vector;
-
-import ga.data.Chromosome;
 
 public class TSPFitnessFunction implements FitnessFunction {
 	private Vector<Point2D> sehirler;
 
 	public TSPFitnessFunction(Vector<Point2D> _sehirler) {
 		sehirler = _sehirler;
-	}
-
-	public float getFitness(Chromosome chr) {
-		float fitness = 0;
-
-		int[] genes = chr.getGenes();
-
-		for (int i = 0; i < chr.getGeneCount(); i++) {
-			fitness += getDistance(genes[i], genes[i + 1]);
-		}
-
-		return fitness;
-	}
-
-	private float getDistance() {
-
-		return sehirler.;
-
 	}
 
 	private void parseFile(String fileName) throws NumberFormatException,
@@ -76,8 +56,25 @@ public class TSPFitnessFunction implements FitnessFunction {
 			}
 		}
 	}
+
+	public float getFitness(Chromosome chr) {
+
+		float fitness = 0;
+
+		int[] genes = chr.getGenes();
+
+		for (int i = 0; i < genes.length - 1; i++) {
+			fitness += getDistance(genes[i], genes[i + 1]);
+		}
+
+		fitness += getDistance(genes[genes.length - 1], genes[0]);
+
+		return fitness;
+	}
+
+	private float getDistance(int i, int j) {
+
+		return (float) sehirler.get(i).distance(sehirler.get(j));
+	}
+
 }
-/*
- * private double getDistance(Gene gi, Gene gj) { return sehirler.get((Integer)
- * gi.getAllele()).distance( sehirler.get((Integer) gj.getAllele()));
- */
