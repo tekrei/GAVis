@@ -3,7 +3,7 @@ package ga.test;
 import ga.GeneticAlgorithm;
 import ga.data.ChromosomeFactory;
 import ga.data.GAParametreler;
-import ga.fitness.FinansFitnessFunction;
+import ga.fitness.FinanceFitnessFunction;
 import ga.operators.OnePointCrossover;
 import ga.operators.RandomSelection;
 import ga.operators.SwapMutation;
@@ -15,7 +15,7 @@ public class FinansTest {
 				ChromosomeFactory.DIOPHANTINE));
 		new GeneticAlgorithm(GAParametreler.getInstance(),
 				new OnePointCrossover(), new SwapMutation(),
-				new RandomSelection(), new FinansFitnessFunction())
+				new RandomSelection(), new FinanceFitnessFunction())
 				.calculate();
 	}
 }

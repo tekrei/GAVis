@@ -17,5 +17,7 @@ public class DiophantineTest {
 				new OnePointCrossover(), new SwapMutation(),
 				new RandomSelection(), new DiophantineFitnessFunction())
 				.calculate();
+		
+		
 	}
 }
