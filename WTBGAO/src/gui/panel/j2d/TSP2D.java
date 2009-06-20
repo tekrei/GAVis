@@ -34,12 +34,12 @@ public class TSP2D extends Java2D {
 	@Override
 	public void update(Chromosome chr, String info) {
 		// Yollari olusturalim
-		yollar.clear();
+		yollar = new Vector<Line2D.Float>();
 		int[] genes = chr.getGenes();
 		for (int i = 0; i < genes.length - 1; i++) {
-			yollar.add(createLine(i, i + 1));
+			yollar.add(createLine(genes[i],genes[i + 1]));
 		}
-		yollar.add(createLine(genes.length - 1, 0));
+		yollar.add(createLine(genes[genes.length - 1], genes[0]));
 		this.updateUI();
 	}
 
@@ -53,16 +53,17 @@ public class TSP2D extends Java2D {
 
 		@Override
 		public void paint(Graphics g) {
-			// super.paintComponent(g);
+			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D) g;
 			// Sehirler
-			for (int i = 0; i < sehirler.size(); i++)
+			for (int i = 0; i < sehirler.size(); i++) {
 				g2d.fill(new Ellipse2D.Float(sehirler.get(i).x,
 						sehirler.get(i).y, 10f, 10f));
+				g2d.drawString("C"+i,sehirler.get(i).x,sehirler.get(i).y);
+			}
 			// Yollar
 			for (int i = 0; i < yollar.size(); i++)
 				g2d.draw(yollar.get(i));
-
 		}
 	}
 
