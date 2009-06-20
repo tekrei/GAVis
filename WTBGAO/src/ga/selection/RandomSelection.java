@@ -1,4 +1,4 @@
-package ga.operators;
+package ga.selection;
 
 import ga.data.Chromosome;
 import ga.interfaces.Selection;

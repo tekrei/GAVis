@@ -16,16 +16,16 @@ import javax.swing.SwingConstants;
 public class GAParametreleriPanel extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JLabel jLabel = null;
+	private JLabel lblBireySayisi = null;
 	private JTextField txtBireySayisi = null;
-	private JLabel jLabel1 = null;
+	private JLabel lblNesilSayisi = null;
 	private JTextField txtNesilSayisi = null;
-	private JLabel jLabel2 = null;
-	private JLabel jLabel6 = null;
+	private JLabel lblSecilim = null;
+	private JLabel lblCaprazlamaOlasiligi = null;
 	private JTextField txtCaprazlamaOlasiligi = null;
-	private JLabel jLabel7 = null;
+	private JLabel lblMutasyonOlasiligi = null;
 	private JTextField txtMutasyonOlasiligi = null;
-	private JLabel jLabel8 = null;
+	private JLabel lblElitizm = null;
 	private JRadioButton jrbElitizm = null;
 	private JComboBox cmbSecilimYontemi = null;
 	/**
@@ -46,41 +46,42 @@ public class GAParametreleriPanel extends JInternalFrame {
 	 * @return void
 	 */
 	private void initialize() {
-		jLabel8 = new JLabel();
-		jLabel8.setBounds(new Rectangle(17, 113, 191, 16));
-		jLabel8.setText("Elitizm");
-		jLabel7 = new JLabel();
-		jLabel7.setBounds(new Rectangle(0, 70, 151, 21));
-		jLabel7.setText("Mutasyon Olasılığı:");
-		jLabel6 = new JLabel();
-		jLabel6.setBounds(new Rectangle(0, 50, 151, 21));
-		jLabel6.setText("Çaprazlama Olasılığı:");
-		jLabel2 = new JLabel();
-		jLabel2.setBounds(new Rectangle(0, 90, 151, 21));
-		jLabel2.setText("Seçilim Yöntemi");
-		jLabel1 = new JLabel();
-		jLabel1.setBounds(new Rectangle(0, 30, 151, 21));
-		jLabel1.setToolTipText("Ulaşılması gereken nesil sayısı");
-		jLabel1.setText("Nesil Sayısı:");
-		jLabel = new JLabel();
-		jLabel.setText("Birey Sayısı:");
-		jLabel.setSize(new Dimension(151, 21));
-		jLabel.setToolTipText("Toplumdaki birey sayısı");
-		jLabel.setHorizontalTextPosition(SwingConstants.LEADING);
-		jLabel.setHorizontalAlignment(SwingConstants.LEADING);
-		jLabel.setLocation(new Point(0, 10));
+		//TODO dugmelerin ve etiketlerin yeri karismis
+		lblElitizm = new JLabel();
+		lblElitizm.setBounds(new Rectangle(17, 113, 191, 16));
+		lblElitizm.setText("Elitizm");
+		lblMutasyonOlasiligi = new JLabel();
+		lblMutasyonOlasiligi.setBounds(new Rectangle(0, 70, 151, 21));
+		lblMutasyonOlasiligi.setText("Mutasyon Olasılığı:");
+		lblCaprazlamaOlasiligi = new JLabel();
+		lblCaprazlamaOlasiligi.setBounds(new Rectangle(0, 50, 151, 21));
+		lblCaprazlamaOlasiligi.setText("Çaprazlama Olasılığı:");
+		lblSecilim = new JLabel();
+		lblSecilim.setBounds(new Rectangle(0, 90, 151, 21));
+		lblSecilim.setText("Seçilim Yöntemi");
+		lblNesilSayisi = new JLabel();
+		lblNesilSayisi.setBounds(new Rectangle(0, 30, 151, 21));
+		lblNesilSayisi.setToolTipText("Ulaşılması gereken nesil sayısı");
+		lblNesilSayisi.setText("Nesil Sayısı:");
+		lblBireySayisi = new JLabel();
+		lblBireySayisi.setText("Birey Sayısı:");
+		lblBireySayisi.setSize(new Dimension(151, 21));
+		lblBireySayisi.setToolTipText("Toplumdaki birey sayısı");
+		lblBireySayisi.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblBireySayisi.setHorizontalAlignment(SwingConstants.LEADING);
+		lblBireySayisi.setLocation(new Point(0, 10));
 		this.setSize(231, 133);
 		this.setLayout(null);
-		this.add(jLabel, null);
+		this.add(lblBireySayisi, null);
 		this.add(getTxtBireySayisi(), null);
-		this.add(jLabel1, null);
+		this.add(lblNesilSayisi, null);
 		this.add(getTxtNesilSayisi(), null);
-		this.add(jLabel2, null);
-		this.add(jLabel6, null);
+		this.add(lblSecilim, null);
+		this.add(lblCaprazlamaOlasiligi, null);
 		this.add(getTxtCaprazlamaOlasiligi(), null);
-		this.add(jLabel7, null);
+		this.add(lblMutasyonOlasiligi, null);
 		this.add(getTxtMutasyonOlasiligi(), null);
-		this.add(jLabel8, null);
+		this.add(lblElitizm, null);
 		this.add(getJrbElitizm(), null);
 		this.add(getCmbSecilimYontemi(), null);
 	}
@@ -92,7 +93,7 @@ public class GAParametreleriPanel extends JInternalFrame {
 	 */
 	private JTextField getTxtBireySayisi() {
 		if (txtBireySayisi == null) {
-			txtBireySayisi = new JTextField();
+			txtBireySayisi = new JTextField("100");
 			txtBireySayisi.setBounds(new Rectangle(150, 10, 71, 21));
 		}
 		return txtBireySayisi;
@@ -105,8 +106,8 @@ public class GAParametreleriPanel extends JInternalFrame {
 	 */
 	private JTextField getTxtNesilSayisi() {
 		if (txtNesilSayisi == null) {
-			txtNesilSayisi = new JTextField();
-			txtNesilSayisi.setBounds(new Rectangle(150, 50, 71, 21));
+			txtNesilSayisi = new JTextField("100");
+			txtNesilSayisi.setBounds(new Rectangle(150, 30, 71, 21));
 		}
 		return txtNesilSayisi;
 	}
@@ -118,8 +119,8 @@ public class GAParametreleriPanel extends JInternalFrame {
 	 */
 	private JTextField getTxtCaprazlamaOlasiligi() {
 		if (txtCaprazlamaOlasiligi == null) {
-			txtCaprazlamaOlasiligi = new JTextField();
-			txtCaprazlamaOlasiligi.setBounds(new Rectangle(150, 30, 71, 21));
+			txtCaprazlamaOlasiligi = new JTextField("0.7");
+			txtCaprazlamaOlasiligi.setBounds(new Rectangle(150, 50, 71, 21));
 		}
 		return txtCaprazlamaOlasiligi;
 	}
@@ -131,7 +132,7 @@ public class GAParametreleriPanel extends JInternalFrame {
 	 */
 	private JTextField getTxtMutasyonOlasiligi() {
 		if (txtMutasyonOlasiligi == null) {
-			txtMutasyonOlasiligi = new JTextField();
+			txtMutasyonOlasiligi = new JTextField("0.1");
 			txtMutasyonOlasiligi.setBounds(new Rectangle(150, 70, 71, 21));
 		}
 		return txtMutasyonOlasiligi;
@@ -146,13 +147,17 @@ public class GAParametreleriPanel extends JInternalFrame {
 		if (jrbElitizm == null) {
 			jrbElitizm = new JRadioButton();
 			jrbElitizm.setBounds(new Rectangle(2, 112, 21, 16));
+			jrbElitizm.setSelected(true);
 		}
 		return jrbElitizm;
 	}
 	
-	public GAParametreler getParametreler(){
-		//TODO parametreler swing sahalardan alinip dondurulecek
-		return null;
+	public void updateParameters(){
+		GAParametreler.getInstance().setPopulationSize(Integer.parseInt(txtBireySayisi.getText()));
+		GAParametreler.getInstance().setGenerationCount(Integer.parseInt(txtNesilSayisi.getText()));
+		GAParametreler.getInstance().setMutationProbability(Float.parseFloat(txtMutasyonOlasiligi.getText()));
+		GAParametreler.getInstance().setCrossoverProbability(Float.parseFloat(txtCaprazlamaOlasiligi.getText()));
+		//TODO elitism?
 	}
 	
 	public void setParametreler(GAParametreler gap){

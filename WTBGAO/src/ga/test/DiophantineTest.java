@@ -5,8 +5,8 @@ import ga.data.ChromosomeFactory;
 import ga.data.GAParametreler;
 import ga.fitness.DiophantineFitnessFunction;
 import ga.operators.OnePointCrossover;
-import ga.operators.RandomSelection;
 import ga.operators.SwapMutation;
+import ga.selection.RandomSelection;
 
 public class DiophantineTest {
 
@@ -16,7 +16,7 @@ public class DiophantineTest {
 		new GeneticAlgorithm(GAParametreler.getInstance(),
 				new OnePointCrossover(), new SwapMutation(),
 				new RandomSelection(), new DiophantineFitnessFunction())
-				.calculate();
+				.calculate(0);
 		
 		
 	}

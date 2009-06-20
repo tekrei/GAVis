@@ -1,5 +1,7 @@
 package gui.panel;
 
+import gui.AnaPencere;
+
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -13,15 +15,20 @@ public class DugmelerPanel extends JPanel {
 
 	public static final long serialVersionUID = 1L;
 	public JButton jButton = null;
-	public JButton jButton1 = null;
-	public JButton jButton2 = null;
-	public JButton jButton3 = null;
+	public JButton jbDuraklat = null;
+	public JButton jbDurdur = null;
+	public JButton jbAdim = null;
+
+	private AnaPencere anaPencere;
 
 	/**
 	 * This is the default constructor
+	 * 
+	 * @param anaPencere
 	 */
-	public DugmelerPanel() {
+	public DugmelerPanel(AnaPencere anaPencere) {
 		super();
+		this.anaPencere = anaPencere;
 		initialize();
 	}
 
@@ -35,9 +42,9 @@ public class DugmelerPanel extends JPanel {
 		this.setLayout(null);
 		this.setBounds(0, 0, 279, 32);
 		this.add(getJButton(), null);
-		this.add(getJButton1(), null);
-		this.add(getJButton2(), null);
-		this.add(getJButton3(), null);
+		this.add(getJbDuraklat(), null);
+		this.add(getJbDurdur(), null);
+		this.add(getJbAdim(), null);
 		this.setVisible(true);
 	}
 
@@ -56,7 +63,7 @@ public class DugmelerPanel extends JPanel {
 			jButton.setMnemonic(KeyEvent.VK_B);
 			jButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("Başlat!");
+					anaPencere.gaIslem(AnaPencere.BASLAT);
 				}
 			});
 		}
@@ -68,20 +75,20 @@ public class DugmelerPanel extends JPanel {
 	 * 
 	 * @return javax.swing.JButton
 	 */
-	public JButton getJButton1() {
-		if (jButton1 == null) {
-			jButton1 = new JButton();
-			jButton1.setText("");
-			jButton1.setBounds(new Rectangle(75, 0, 74, 16));
-			jButton1.setIcon(new ImageIcon("resimler/Pause24.gif"));
-			jButton1.setPreferredSize(new Dimension(20, 20));
-			jButton1.addActionListener(new java.awt.event.ActionListener() {
+	public JButton getJbDuraklat() {
+		if (jbDuraklat == null) {
+			jbDuraklat = new JButton();
+			jbDuraklat.setText("");
+			jbDuraklat.setBounds(new Rectangle(75, 0, 74, 16));
+			jbDuraklat.setIcon(new ImageIcon("resimler/Pause24.gif"));
+			jbDuraklat.setPreferredSize(new Dimension(20, 20));
+			jbDuraklat.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("Duraklat!");
+					anaPencere.gaIslem(AnaPencere.DURAKLAT);
 				}
 			});
 		}
-		return jButton1;
+		return jbDuraklat;
 	}
 
 	/**
@@ -89,60 +96,40 @@ public class DugmelerPanel extends JPanel {
 	 * 
 	 * @return javax.swing.JButton
 	 */
-	public JButton getJButton2() {
-		if (jButton2 == null) {
-			jButton2 = new JButton();
+	public JButton getJbDurdur() {
+		if (jbDurdur == null) {
+			jbDurdur = new JButton();
 
-			jButton2.setLocation(new Point(210, 0));
-			jButton2.setSize(new Dimension(63, 16));
-			jButton2.setIcon(new ImageIcon("resimler/Stop24.gif"));
-			jButton2.setPreferredSize(new Dimension(20, 20));
-			jButton2.addActionListener(new java.awt.event.ActionListener() {
+			jbDurdur.setLocation(new Point(210, 0));
+			jbDurdur.setSize(new Dimension(63, 16));
+			jbDurdur.setIcon(new ImageIcon("resimler/Stop24.gif"));
+			jbDurdur.setPreferredSize(new Dimension(20, 20));
+			jbDurdur.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("Durdur");
+					anaPencere.gaIslem(AnaPencere.DURDUR);
 				}
 			});
 		}
-		return jButton2;
+		return jbDurdur;
 	}
 
-	/**
-	 * This method initializes jButton3
-	 * 
-	 * @return javax.swing.JButton
-	 */
-	public JButton getJButton3() {
-		if (jButton3 == null) {
-			jButton3 = new JButton();
+	public JButton getJbAdim() {
+		if (jbAdim == null) {
+			jbAdim = new JButton();
 
-			jButton3.setPreferredSize(new Dimension(50, 50));
-			jButton3.setLocation(new Point(150, 0));
-			jButton3.setIcon(new ImageIcon("resimler/StepForward24.gif"));
-			jButton3.setSize(new Dimension(68, 16));
-			jButton3.setSelected(true);
-			jButton3.addActionListener(new java.awt.event.ActionListener() {
+			jbAdim.setPreferredSize(new Dimension(50, 50));
+			jbAdim.setLocation(new Point(150, 0));
+			jbAdim.setIcon(new ImageIcon("resimler/StepForward24.gif"));
+			jbAdim.setSize(new Dimension(68, 16));
+			jbAdim.setSelected(true);
+			jbAdim.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("actionPerformed()"); // TODO
-					// Auto-generated
-					// Event stub
-					// actionPerformed()
+					anaPencere.gaIslem(AnaPencere.ADIM);
 				}
 			});
 		}
-		return jButton3;
+		return jbAdim;
 	}
-
-	/**
-	 * This method initializes jButton2
-	 * 
-	 * @return javax.swing.JButton
-	 */
-
-	/**
-	 * This method initializes jButton3
-	 * 
-	 * @return javax.swing.JButton
-	 */
 
 } // @jve:decl-index=0:visual-constraint="191,121"
 

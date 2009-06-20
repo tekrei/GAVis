@@ -5,8 +5,8 @@ import ga.data.ChromosomeFactory;
 import ga.data.GAParametreler;
 import ga.fitness.FinanceFitnessFunction;
 import ga.operators.OnePointCrossover;
-import ga.operators.RandomSelection;
 import ga.operators.SwapMutation;
+import ga.selection.RandomSelection;
 
 public class FinansTest {
 
@@ -16,6 +16,6 @@ public class FinansTest {
 		new GeneticAlgorithm(GAParametreler.getInstance(),
 				new OnePointCrossover(), new SwapMutation(),
 				new RandomSelection(), new FinanceFitnessFunction())
-				.calculate();
+				.calculate(0);
 	}
 }
