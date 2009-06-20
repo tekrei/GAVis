@@ -1,10 +1,12 @@
 package ga.data;
 
+import java.util.Arrays;
+
 import ga.utils.RandomNumberGenerator;
 
-public class TSPChromosome extends Chromosome{
+public class TSPChromosome extends Chromosome {
 
-	public TSPChromosome(int geneCount){
+	public TSPChromosome(int geneCount) {
 		randomize(geneCount);
 	}
 
@@ -13,16 +15,18 @@ public class TSPChromosome extends Chromosome{
 
 	private void randomize(int geneCount) {
 		genes = new int[geneCount];
-		
-		for (int i = 0; i < genes.length; i++) {
-			genes[i] = RandomNumberGenerator.getInstance().nextInt(geneCount);
-		}
-	}
+		Arrays.fill(genes,-1);
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		for (int i = 0; i < genes.length; i++) {
+
+			int j = RandomNumberGenerator.getInstance().nextInt(geneCount);
+
+			while (ChromosomeFactory.contains(genes, j)) {
+				j = RandomNumberGenerator.getInstance().nextInt(geneCount);
+			}
+			genes[i] = j;
+
+		}
 	}
 
 }

@@ -21,4 +21,15 @@ public class ChromosomeFactory {
 		return null;
 	}
 
+	
+	public static boolean contains(int[] a, int b) {
+		for (int i = 0; i < a.length; i++) {
+			if (b == a[i]) {
+				return true;
+			}
+
+		}
+		return false;
+	}
+	
 }

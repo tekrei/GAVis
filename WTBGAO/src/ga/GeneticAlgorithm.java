@@ -4,12 +4,17 @@ import ga.data.Chromosome;
 import ga.data.GAParametreler;
 import ga.fitness.FitnessFunction;
 import ga.interfaces.Crossover;
+import ga.interfaces.GAListener;
 import ga.interfaces.Mutation;
 import ga.interfaces.Selection;
 import ga.utils.QubbleSortAlgorithm;
 import ga.utils.RandomNumberGenerator;
 
 public class GeneticAlgorithm {
+
+	boolean durdur = false;
+	boolean duraklat = false;
+	Thread th;
 
 	// Elite kromozomlari tutuyoruz
 	private Chromosome elite;
@@ -25,6 +30,8 @@ public class GeneticAlgorithm {
 	private Selection selection;
 	private FitnessFunction fitness;
 
+	private GAListener gaListener = null;
+
 	public GeneticAlgorithm(GAParametreler p, Crossover c, Mutation m,
 			Selection s, FitnessFunction f) {
 		this.crossover = c;
@@ -34,7 +41,13 @@ public class GeneticAlgorithm {
 		this.fitness = f;
 	}
 
-	public Chromosome calculate() {
+	public void setGAListener(GAListener gal) {
+		this.gaListener = gal;
+	}
+
+	public Chromosome calculate(int beklemeSuresi) {
+		
+		System.out.println(parameters.getPopulationSize());
 		final long baslangic = System.currentTimeMillis();
 
 		generateRandomPopulation(parameters.getPopulationSize());
@@ -47,6 +60,14 @@ public class GeneticAlgorithm {
 		elite = population[0];
 
 		while (nesil < parameters.getGenerationCount()) {
+			if (durdur)
+				break;
+			while (duraklat) {
+				try {
+					wait();
+				} catch (Exception e) {
+				}
+			}
 			nesil++;
 			final long bas = System.currentTimeMillis();
 			if (elite != null)
@@ -61,13 +82,31 @@ public class GeneticAlgorithm {
 			} else {
 				sayac = 0;
 			}
+			gaListener.generation(nesil, elite);
+			gaListener.loadPopulation(population);
 			System.out.println("GENERATION" + nesil + "\t T:"
 					+ (System.currentTimeMillis() - bas) + "ms \t ELITE:"
 					+ elite.toString());
+			try {
+				Thread.sleep(beklemeSuresi);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		System.out.println("TOPLAM:" + (System.currentTimeMillis() - baslangic)
 				+ "ms");
+		gaListener.finished(elite);
 		return elite;
+	}
+
+	public void durdur() {
+		// Algoritma durdurulacak
+		durdur = true;
+	}
+
+	public void duraklat() {
+		// Algoritma duraklatilacak
+		duraklat = !duraklat;
 	}
 
 	private void calculateAndSort() {
@@ -79,7 +118,7 @@ public class GeneticAlgorithm {
 		QubbleSortAlgorithm.getInstance().sort(population);
 	}
 
-	private void crossover() {
+	public void crossover() {
 		try {
 			final int mateCount = (int) (parameters.getCrossoverProbability()
 					* population.length * 0.5);
@@ -131,5 +170,16 @@ public class GeneticAlgorithm {
 					population.length);
 			mutation.mutate(population[which]);
 		}
+	}
+
+	public void baslat(final int ms) {
+		durdur = false;
+		duraklat = false;
+		th = new Thread() {
+			public void run() {
+				calculate(ms);
+			};
+		};
+		th.start();
 	}
 }

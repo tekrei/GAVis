@@ -19,11 +19,5 @@ public class FinanceChromosome extends Chromosome {
 		}
 	}
 	
-	public String toString(){
-		String str = "";
-		for (int i = 0; i < genes.length; i++) {
-			str+=genes[i]+" ";
-		}
-		return str+" Fitness:"+getFitness();
-	}
+	// TODO kromozomların gen değerlerinin alabileceği aralık düzenlenmeli a,b,c ye göre ayrı nasıl yapılır ki?
 }

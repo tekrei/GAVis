@@ -18,12 +18,4 @@ public class DiophantineChromosome extends Chromosome {
 			genes[i] = RandomNumberGenerator.getInstance().nextInt(10);
 		}
 	}
-	
-	public String toString(){
-		String str = "";
-		for (int i = 0; i < genes.length; i++) {
-			str+=genes[i]+" ";
-		}
-		return str+" Fitness:"+getFitness();
-	}
 }

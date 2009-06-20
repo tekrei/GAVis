@@ -42,8 +42,11 @@ public class FinanceFitnessFunction implements FitnessFunction {
 			}
 
 		}
-		return ;
+		//TODO duzeltilecek
+		return 0;
 	}
+	
+	// TODO denklemler beraber nasıl maksimize edilecek araştır
 	
 	public float getFitness(FinanceChromosome a_potentialsolution) {
 		int profit = 0;
@@ -53,6 +56,11 @@ public class FinanceFitnessFunction implements FitnessFunction {
 		int fitness = Math.abs(sonuc - profit);
 
 		return fitness ;
+	}
+
+	public float getFitness(Chromosome chr) {
+		// TODO Finans fitness
+		return 0;
 	}
 
 	

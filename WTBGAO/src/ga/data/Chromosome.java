@@ -40,5 +40,11 @@ public abstract class Chromosome {
 		return genes.length;
 	}
 
-	public abstract String toString();
+	public String toString(){
+		String str = "";
+		for (int i = 0; i < genes.length; i++) {
+			str+=genes[i]+" ";
+		}
+		return str+" Fitness:"+getFitness();
+	}
 }
