@@ -173,12 +173,12 @@ public class MainWindow extends JFrame implements ActionListener, GAListener {
         }
     }
 
-    public void finished(Chromosome elite) {
-        cp.update(elite);
+    public void finished(Chromosome best) {
+        cp.update(best);
     }
 
-    public void generation(int generation, Chromosome chr) {
-        cp.update(chr);
+    public void iterationComplete(Chromosome best) {
+        cp.update(best);
     }
 
     public void loadPopulation(Chromosome[] population) {

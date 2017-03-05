@@ -88,7 +88,7 @@ import java.util.Random;
  * Random, which means it can be used with earlier versions of Java. See <a
  * href="http://www.javasoft.com/products/jdk/1.2/docs/api/java/util/Random.html">
  * the JDK 1.2 java.util.Random documentation</a> for further documentation on
- * the random-number generation contracts made. Additionally, there's an
+ * the random-number iterationComplete contracts made. Additionally, there's an
  * undocumented bug in the JDK java.util.Random.nextBytes() method, which this
  * code fixes.
  * <p>

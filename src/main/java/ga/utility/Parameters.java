@@ -8,6 +8,10 @@ import java.util.Vector;
 
 public class Parameters {
 
+    //diophantine
+    //last element is the expected result
+    public static final int MAX_VALUE = 5;
+    public static final int MAX_VALUE_2 = 25;
     private final static MersenneTwisterFast generator = new MersenneTwisterFast();
     public static int populationSize = 100;
     public static int generationCount = 100;
@@ -16,19 +20,9 @@ public class Parameters {
     public static boolean elitism = true;
     //TSP
     public static Vector<Point> CITIES;
-    //diophantine
-    //last element is the expected result
-    public static int MAX_VALUE = 5;
-    public static int MAX_VALUE_2 = 25;
     public static int[] VALUES;
     //GA
     public static ChromosomeFactory chromosomeFactory;
-
-    private Parameters(int populationSize, int generationCount,
-                       float mutationProbability, float crossoverProbability, ChromosomeFactory _cf) {
-        super();
-
-    }
 
     public static int nextInt(int upperLimit) {
         return generator.nextInt(upperLimit);
@@ -53,13 +47,6 @@ public class Parameters {
 
     public static Chromosome createChromosome() {
         return chromosomeFactory.createChromosome();
-    }
-
-    public static void setParams(int ps, int gs, float cp, float mp) {
-        populationSize = ps;
-        generationCount = gs;
-        crossoverProbability = cp;
-        mutationProbability = mp;
     }
 
     public static String parameters() {

@@ -4,9 +4,9 @@ import ga.data.Chromosome;
 
 public interface GAListener {
 
-    void generation(int generation, Chromosome chr);
+    void iterationComplete(Chromosome best);
 
-    void finished(Chromosome elite);
+    void finished(Chromosome best);
 
     void loadPopulation(Chromosome[] population);
 

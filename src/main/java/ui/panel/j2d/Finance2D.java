@@ -8,8 +8,8 @@ import java.awt.*;
 public class Finance2D extends Java2D {
 
     public Finance2D() {
-        super("Finance2D Problem",
-                true, false, true, true);
+        super("Finance2D Problem"
+        );
         initialize();
     }
 

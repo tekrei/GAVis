@@ -9,8 +9,7 @@ import java.awt.*;
 import java.util.List;
 
 public class Chromosomes extends JInternalFrame {
-    private List<Chromosome> chromosomes;
-    private ChromosomeTable jct;
+    private final ChromosomeTable jct;
 
     public Chromosomes() {
         super("Chromosome List", true, false, true, true);

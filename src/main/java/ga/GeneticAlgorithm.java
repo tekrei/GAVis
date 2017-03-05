@@ -44,7 +44,7 @@ public class GeneticAlgorithm {
                 elitism();
             }
             if (gaListener != null) {
-                gaListener.generation(generation, population[0]);
+                gaListener.iterationComplete(population[0]);
                 gaListener.loadPopulation(population);
             }
             info("GENERATION " + generation + "(" + (System.currentTimeMillis() - bas) + "ms) BEST:" + population[0].toString());

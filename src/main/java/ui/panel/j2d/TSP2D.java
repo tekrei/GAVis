@@ -12,7 +12,7 @@ public class TSP2D extends Java2D {
     private Chromosome chr;
 
     public TSP2D() {
-        super("TSP Problem", true, false, true, true);
+        super("TSP Problem");
         this.setSize(300, 200);
         this.add(canvas);
     }

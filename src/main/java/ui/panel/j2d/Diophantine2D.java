@@ -7,10 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Diophantine2D extends Java2D {
-    private JLabel lblInfo;
+    private final JLabel lblInfo;
 
     public Diophantine2D() {
-        super("Diophantine Problem", true, false, true, true);
+        super("Diophantine Problem");
         this.setLayout(new BorderLayout());
         this.setSize(300, 200);
         StringBuilder builder = new StringBuilder("EQUATION → ");
