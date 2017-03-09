@@ -1,5 +1,5 @@
-# WTBGAO
-Genetic Algorithm visualisation for beginners to learn GA.
+# GAVis
+*G*enetic *A*lgorithm *Vis*ualisation for beginners to learn GA.
 
 Aim to visualise GA solving of three problems:
 
